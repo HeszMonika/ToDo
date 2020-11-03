@@ -127,15 +127,23 @@ namespace ToDo
 
         private void mMentes_Click(object sender, EventArgs e)
         {
-            if (sfdMentes.ShowDialog() == DialogResult.OK)
+            if (lbToDo.Items.Count > 0)
             {
-                StreamWriter sw = new StreamWriter(sfdMentes.FileName);
-                foreach (var item in lbToDo.Items)
+                sfdMentes.FileName = FileNameDate();
+                if (sfdMentes.ShowDialog() == DialogResult.OK)
                 {
-                    sw.WriteLine(item);
+                    StreamWriter sw = new StreamWriter(sfdMentes.FileName);
+                    foreach (var item in lbToDo.Items)
+                    {
+                        sw.WriteLine(item);
+                    }
+                    sw.Close();
+                    MessageBox.Show("Sikeres mentés.", "Mentés.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                sw.Close();
-                MessageBox.Show("Sikeres mentés.", "Mentés.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Nincs mit menteni.", "Mentés.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
