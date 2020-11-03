@@ -12,9 +12,29 @@ namespace ToDo
 {
     public partial class frmLista : Form
     {
-        public frmLista()
+        public string SelectedToDo { get; set; }
+
+        public frmLista(List<string> todos)
         {
             InitializeComponent();
+
+            lbTargyak.Items.Clear();
+            foreach (var t in todos)
+            {
+                lbTargyak.Items.Add(t);
+            }
+        }
+
+        private void lbTargyak_DoubleClick(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            SelectedToDo = lbTargyak.SelectedItem.ToString();
+            this.Close();
+        }
+
+        private void frmLista_Shown(object sender, EventArgs e)
+        {
+            lbTargyak.SelectedIndex = 0;
         }
     }
 }

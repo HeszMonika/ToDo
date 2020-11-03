@@ -28,44 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbTargyak = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lbTargyak
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Items.AddRange(new object[] {
-            "Kenyér",
-            "Zsömle",
-            "Kifli",
-            "Tej",
-            "Vaj",
-            "Sajt",
-            "Sör"});
-            this.listBox1.Location = new System.Drawing.Point(16, 17);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(295, 464);
-            this.listBox1.TabIndex = 0;
+            this.lbTargyak.FormattingEnabled = true;
+            this.lbTargyak.ItemHeight = 20;
+            this.lbTargyak.Location = new System.Drawing.Point(16, 17);
+            this.lbTargyak.Name = "lbTargyak";
+            this.lbTargyak.Size = new System.Drawing.Size(295, 464);
+            this.lbTargyak.TabIndex = 0;
+            this.lbTargyak.DoubleClick += new System.EventHandler(this.lbTargyak_DoubleClick);
             // 
             // frmLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 561);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(329, 495);
+            this.Controls.Add(this.lbTargyak);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Választható elemek";
+            this.Shown += new System.EventHandler(this.frmLista_Shown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbTargyak;
     }
 }
